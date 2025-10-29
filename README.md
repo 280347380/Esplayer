@@ -13,11 +13,14 @@
 
 ```
 Esplayer/
-├── main.cpp      # 主程序入口
-├── Process.h     # 进程管理类
-├── Function.h    # 函数绑定模板类
-├── Epoll.h       # Epoll事件处理类
-└── README.md     # 项目说明
+├── include/          # 头文件目录
+│   ├── Process.h     # 进程管理类
+│   ├── Function.h    # 函数绑定模板类
+│   └── Epoll.h       # Epoll事件处理类
+├── src/              # 源代码目录
+│   └── main.cpp      # 主程序入口
+├── .gitignore        # Git忽略文件配置
+└── README.md         # 项目说明
 ```
 
 ## 核心组件
@@ -42,7 +45,7 @@ Esplayer/
 
 ```bash
 # 编译
-g++ -o esplayer main.cpp -std=c++11
+g++ -o esplayer src/main.cpp -Iinclude -std=c++11
 
 # 运行
 ./esplayer

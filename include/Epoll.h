@@ -2,7 +2,6 @@
 #include <sys/epoll.h>
 #include <unistd.h>
 #include <vector>
-#include <cerrno>
 #include <errno.h>
 #include <signal.h>
 #include <memory.h>

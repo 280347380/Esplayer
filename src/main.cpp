@@ -1,9 +1,4 @@
-﻿#include "Process.h"
-#include <cstdio>      // for printf
-#include <unistd.h>    // for getpid, sleep, read, close, usleep
-#include <fcntl.h>     // for open, lseek, SEEK_SET, O_RDWR, O_CREAT, O_APPEND
-#include <cerrno>      // for errno
-#include <cstring>     // for strerror
+﻿#include "../include/Process.h"
 
 int CreateLogServer(CProcess* proc)
 {
