@@ -19,6 +19,11 @@ Esplayer/
 │   └── Epoll.h       # Epoll事件处理类
 ├── src/              # 源代码目录
 │   └── main.cpp      # 主程序入口
+├── docs/             # 文档目录
+│   └── API.md        # API文档
+├── build/            # 编译输出目录（自动生成）
+├── bin/              # 可执行文件目录（自动生成）
+├── Makefile          # 构建配置文件
 ├── .gitignore        # Git忽略文件配置
 └── README.md         # 项目说明
 ```
@@ -43,12 +48,33 @@ Esplayer/
 
 ## 编译和运行
 
+### 使用 Makefile（推荐）
+
+```bash
+# 编译项目
+make
+
+# 运行程序
+make run
+
+# 清理编译文件
+make clean
+
+# 重新编译
+make rebuild
+
+# 查看帮助
+make help
+```
+
+### 手动编译
+
 ```bash
 # 编译
-g++ -o esplayer src/main.cpp -Iinclude -std=c++11
+g++ -o bin/esplayer src/main.cpp -Iinclude -std=c++11
 
 # 运行
-./esplayer
+./bin/esplayer
 ```
 
 ## 开发环境
