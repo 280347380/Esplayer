@@ -1,23 +1,26 @@
 #pragma once
 #include <functional>
-class CFunctionBase
-{
+//抽象基类：统一接口
+class FunctionBase{
 public:
-	virtual ~CFunctionBase() {}
+	virtual ~FunctionBase() {}
 	virtual int operator()() = 0;
 };
-
-template<typename _FUNCTION_, typename... _ARGS_>
-class CFunction :public CFunctionBase
+template<typename _Function_,typename ...Args>
+class Function
+	:public FunctionBase
 {
 public:
-	CFunction(_FUNCTION_ func, _ARGS_... args)
-		:m_binder(std::forward<_FUNCTION_>(func), std::forward<_ARGS_>(args)...)
-	{
+	Function(_Function_ func)
+		:m_func(std::bind(std::forward<_Function_>(func),std::forward<Args>(args)...)){}
+	
+	~Function(){}
+
+	int operator()() override{
+		return m_func();
 	}
-	virtual ~CFunction() {}
-	virtual int operator()() {
-		return m_binder();
-	}
-	typename std::_Bindres_helper<int, _FUNCTION_, _ARGS_...>::type m_binder;
+
+private:
+	std::function<int()> m_func;
 };
+
